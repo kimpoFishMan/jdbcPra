@@ -23,7 +23,7 @@ public class Example1 {
 		//실행문준비
 		Statement st = con.createStatement();
 		//실행결과테이블 얻기
-		ResultSet rs = st.executeQuery("SELECT * FROM NOTICE");
+		ResultSet rs = st.executeQuery("select * from notice where hit >= 10");
 		
 		System.out.printf("id \t title \t writer_id \t content \t regdate \t hit \t files ");
 		System.out.println();
@@ -41,6 +41,11 @@ public class Example1 {
 			System.out.println();
 		}
 		
+		
+		//자원해제
+		rs.close();
+		st.close();
+		con.close();
 	}
 
 }
